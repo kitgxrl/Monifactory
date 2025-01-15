@@ -105,6 +105,11 @@ jobs:
           echo "name=$name" >> "$GITHUB_OUTPUT"
         shell: bash
 
+      - name: Update manifest.json version
+        run: |
+          sed -i "s/\"version\": \"dev\"/\"version\": \"${{ needs.pre-build.outputs.version }}\"/"
+        shell: bash
+
       - name: Download artifacts - Current Flow
         if: ${{ inputs.skip_build == false }}
         uses: actions/download-artifact@v4.1.8
