@@ -107,7 +107,7 @@ jobs:
 
       - name: Update manifest.json version
         run: |
-          sed -i "s/\"version\": \"dev\"/\"version\": \"${{ needs.pre-build.outputs.version }}\"/"
+          sed -i "s/\"version\": \"dev\"/\"version\": \"${{ needs.pre-build.outputs.version }}\"/" manifest.json
         shell: bash
 
       - name: Download artifacts - Current Flow
